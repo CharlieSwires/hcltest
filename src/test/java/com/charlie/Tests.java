@@ -13,7 +13,7 @@ public class Tests {
     
     private RController controller = null;
 
-    private static final Double delta = 0.00001;
+    private static final double delta = 0.00001;
     
     @Before
     public void startup() {
