@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping(path = "/")
+@RequestMapping(path = "/hcl/")
 public class RController  {
     private static final Logger LOGGER = LoggerFactory.getLogger(RController.class);
 
@@ -23,32 +23,40 @@ public class RController  {
     }
     
     @GetMapping(path="add/{v1}/{v2}", produces="application/json")
-    public Double add(@PathVariable("v1") Integer i1, @PathVariable("v2") Integer i2) {
+    public ReturnBean add(@PathVariable("v1") Integer i1, @PathVariable("v2") Integer i2) {
 
         Double result = service.add(i1,i2);
         LOGGER.info(""+i1+" + "+i2+" = "+result.toString());
-        return result;
+        ReturnBean item = new ReturnBean();
+        item.setCount(""+result);
+        return item;
     }
     @GetMapping(path="subtract/{v1}/{v2}", produces="application/json")
-    public Double subtract(@PathVariable("v1") Integer i1, @PathVariable("v2") Integer i2) {
+    public ReturnBean subtract(@PathVariable("v1") Integer i1, @PathVariable("v2") Integer i2) {
 
         Double result = service.subtract(i1,i2);
         LOGGER.info(""+i1+" - "+i2+" = "+result.toString());
-        return result;
-    }
+        ReturnBean item = new ReturnBean();
+        item.setCount(""+result);
+        return item;
+    }                           
     @GetMapping(path="multiply/{v1}/{v2}", produces="application/json")
-    public Double multiply(@PathVariable("v1") Integer i1, @PathVariable("v2") Integer i2) {
+    public ReturnBean multiply(@PathVariable("v1") Integer i1, @PathVariable("v2") Integer i2) {
 
         Double result = service.multiply(i1,i2);
         LOGGER.info(""+i1+" * "+i2+" = "+result.toString());
-        return result;
-    }
+        ReturnBean item = new ReturnBean();
+        item.setCount(""+result);
+        return item;
+     }
     @GetMapping(path="divide/{v1}/{v2}", produces="application/json")
-    public Double divide(@PathVariable("v1") Integer i1, @PathVariable("v2") Integer i2) {
+    public ReturnBean divide(@PathVariable("v1") Integer i1, @PathVariable("v2") Integer i2) {
 
         Double result = service.divide(i1,i2);
         LOGGER.info(""+i1+" / "+i2+" = "+result.toString());
-        return result;
+        ReturnBean item = new ReturnBean();
+        item.setCount(""+result);
+        return item;
     }
 
 
