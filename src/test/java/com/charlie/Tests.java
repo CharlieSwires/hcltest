@@ -39,19 +39,19 @@ public class Tests {
 
     @Test
     public void testAdd2() {
-        Assert.assertEquals(new Double(controller.add(1, 3).getCount()), 4.0, delta);
+        Assert.assertEquals(new Double(controller.add(1, 3).getBody().getCount()), 4.0, delta);
     }
     @Test
    public void testSub2() {
-        Assert.assertEquals(new Double(controller.subtract(1, 3).getCount()), -2.0, delta);
+        Assert.assertEquals(new Double(controller.subtract(1, 3).getBody().getCount()), -2.0, delta);
     }
     @Test
     public void testMultiply2() {
-        Assert.assertEquals(new Double(controller.multiply(1, 3).getCount()), 3.0, delta);
+        Assert.assertEquals(new Double(controller.multiply(1, 3).getBody().getCount()), 3.0, delta);
     }
     @Test
     public void testDivid2() {
-        Assert.assertEquals(new Double(controller.divide(1, 2).getCount()), 0.5, delta);
+        Assert.assertEquals(new Double(controller.divide(1, 2).getBody().getCount()), 0.5, delta);
     }
 
 }

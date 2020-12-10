@@ -4,6 +4,8 @@ package com.charlie;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,40 +25,40 @@ public class RController  {
     }
     
     @GetMapping(path="add/{v1}/{v2}", produces="application/json")
-    public ReturnBean add(@PathVariable("v1") Integer i1, @PathVariable("v2") Integer i2) {
+    public ResponseEntity<ReturnBean> add(@PathVariable("v1") Integer i1, @PathVariable("v2") Integer i2) {
 
         Double result = service.add(i1,i2);
         LOGGER.info(""+i1+" + "+i2+" = "+result.toString());
         ReturnBean item = new ReturnBean();
         item.setCount(""+result);
-        return item;
+        return new ResponseEntity<ReturnBean>(item, HttpStatus.OK);
     }
     @GetMapping(path="subtract/{v1}/{v2}", produces="application/json")
-    public ReturnBean subtract(@PathVariable("v1") Integer i1, @PathVariable("v2") Integer i2) {
+    public ResponseEntity<ReturnBean> subtract(@PathVariable("v1") Integer i1, @PathVariable("v2") Integer i2) {
 
         Double result = service.subtract(i1,i2);
         LOGGER.info(""+i1+" - "+i2+" = "+result.toString());
         ReturnBean item = new ReturnBean();
         item.setCount(""+result);
-        return item;
+        return new ResponseEntity<ReturnBean>(item, HttpStatus.OK);
     }                           
     @GetMapping(path="multiply/{v1}/{v2}", produces="application/json")
-    public ReturnBean multiply(@PathVariable("v1") Integer i1, @PathVariable("v2") Integer i2) {
+    public ResponseEntity<ReturnBean> multiply(@PathVariable("v1") Integer i1, @PathVariable("v2") Integer i2) {
 
         Double result = service.multiply(i1,i2);
         LOGGER.info(""+i1+" * "+i2+" = "+result.toString());
         ReturnBean item = new ReturnBean();
         item.setCount(""+result);
-        return item;
+        return new ResponseEntity<ReturnBean>(item, HttpStatus.OK);
      }
     @GetMapping(path="divide/{v1}/{v2}", produces="application/json")
-    public ReturnBean divide(@PathVariable("v1") Integer i1, @PathVariable("v2") Integer i2) {
+    public ResponseEntity<ReturnBean> divide(@PathVariable("v1") Integer i1, @PathVariable("v2") Integer i2) {
 
         Double result = service.divide(i1,i2);
         LOGGER.info(""+i1+" / "+i2+" = "+result.toString());
         ReturnBean item = new ReturnBean();
         item.setCount(""+result);
-        return item;
+        return new ResponseEntity<ReturnBean>(item, HttpStatus.OK);
     }
 
 
