@@ -20,7 +20,7 @@ class Middle extends Component {
   
 
     fetchAnything(s1) {
-      const testURL = 'http://localhost:8080/hcltest/hcl/'+s1+'/'+this.state.o1+'/'+this.state.o2;
+      const testURL = 'http://localhost:8888/hcltest/hcl/'+s1+'/'+this.state.o1+'/'+this.state.o2;
       console.log("testURL", testURL);
   
       const myInit = {

@@ -19,11 +19,10 @@ remove the hcl-app/node-nodules
 
 deploy
 ------
-cp target/hcl-test.war apache-tomcat/webapps/.
+docker build --tag website:latest .
+docker run -d -p 8888:8080 website:latest
 
-cd apache-tomcat/bin
-./startup.bat
 
 browser
 -------
-http://localhost:8080/hcltest/hcl-app/build/index.html
+http://localhost:8888/hcltest/hcl-app/build/index.html
